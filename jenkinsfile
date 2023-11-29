@@ -30,7 +30,7 @@ pipeline {
                    // sh "ssh -o StrictHostKeyChecking=no edureka@172.31.5.98 'rm -rf ~/ansSetup.yml ||:'"
                    // sh "exit"
                    // sh "scp /tmp/ansibletemp/ansSetup.yml edureka@172.31.5.98:~/"
-                    sh "ssh -o StrictHostKeyChecking=no edureka@172.31.5.98 'ansible-playbook -v /tmp/ansibletemp/ansSetup.yml'"
+                    sh "ssh edureka@172.31.5.98 'ansible-playbook /tmp/ansibletemp/ansSetup.yml'"
                     sh "exit"
                     sh "rm -rf /tmp/ansibletemp"
                 }
