@@ -27,10 +27,10 @@ pipeline {
                     //Job 2: Push Ansible configuration on the test server to install Docker
                     sh "rm -rf /tmp/ansibletemp ||:"
                     sh "git clone https://github.com/shivali00/EdurekaDevops.git /tmp/ansibletemp"
-                    sh "ssh -o StrictHostKeyChecking=no edureka@ip-172.31.5.98 'rm -rf ~/ansSetup.yml ||:'"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@ip-172.31.5.98 'rm -rf ~/ansSetup.yml ||:'"
                     sh "exit"
-                    sh "scp /tmp/ansibletemp/installation.yml edureka@ip-172.31.5.98:~/"
-                    sh "ssh -o StrictHostKeyChecking=no edureka@ip-172.31.5.98 'ansible-playbook -v ~/ansSetup.yml'"
+                    sh "scp /tmp/ansibletemp/installation.yml ubuntu@ip-172.31.5.98:~/"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@ip-172.31.5.98 'ansible-playbook -v ~/ansSetup.yml'"
                     sh "exit"
                     sh "rm -rf /tmp/ansibletemp"
                 }
